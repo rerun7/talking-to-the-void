@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monda">
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<html>
+    <title>Talking to the Void</title>
+    <body class="container">
+        <!-- Textarea -->
+        <center>
+            <h1 id="text">Talking to the Void</h1>
+            <textarea id="text_box" onload="this.select();" placeholder="Speak and the void shall listen..." spellcheck="false"></textarea>
+        </center>
+        <script>
+            const box = document.getElementById("text_box");
+            document.addEventListener("keyup", (e) => {
+                if (e.which == 13) {
+                    box.value = "";
+                }
+            })
+        </script>
+    </body>
+    <footer>
+        <center>
+            <!-- Buttons -->
+            <button title="Share" id="shareBTN" class="favicon" style="margin-right: 5px;">
+                <ion-icon size="large" name="share-outline"></ion-icon>
+            </button>
+
+            <button title="Resources" id="resourcesBTN" class="favicon" style="margin-right: 5px;">
+                <ion-icon size="large" name="heart"></ion-icon>
+            </button>
+
+            <button title="About" id="aboutBTN" class="favicon">
+                <ion-icon size="large" name="information-outline"></ion-icon>
+            </button>
+
+            <!-- Other -->
+            <p id="foot">Created by Jay Sexton.</p>
+        </center>
+
+        <!-- Modals -->
+        <div id="resources" class="modal">
+            <div class="modal_content">
+                <span class="closeBTN" onclick="document.getElementById('resources').style.display = 'none';">&#10006;</span>
+                <h3 class="modal_head">Feeling down?</h3>
+                <p class="modal_text">Consider reaching out to a trusted person in your life or one of the resources provided below. &#128150;</p>
+                <table>
+                    <tr>
+                        <td><a href="https://www.nami.org/home" role="button" class="rescBTN">US <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                        <td><a href="https://www.mind.org.uk/information-support/guides-to-support-and-services/crisis-services/helplines-listening-services/" role="button" class="rescBTN">UK <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                        <td><a href="https://www.mhe-sme.org/library/youth-helplines/" role="button" class="rescBTN">Europe <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://suicidepreventionlifeline.org/" role="button" class="rescBTN">Suicide <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                        <td><a href="https://www.thehotline.org/" role="button" class="rescBTN">Domestic Abuse <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                        <td><a href="https://www.rainn.org/national-resources-sexual-assault-survivors-and-their-loved-ones" role="button" class="rescBTN">Sexual Assult <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.thetrevorproject.org/" role="button" class="rescBTN">LGBTQIA+ <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                        <td><a href="https://translifeline.org/" role="button" class="rescBTN">Trans Hotline <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                        <td><a href="https://tumblr.zendesk.com/hc/en-us/articles/231885028-Counseling-and-prevention-resources" role="button" class="rescBTN">Other <ion-icon name="arrow-forward-circle-outline" style="vertical-align: -0.125em;"></ion-icon></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="about" class="modal">
+            <div class="modal_content">
+                <span class="closeBTN" onclick="document.getElementById('about').style.display = 'none';">&#10006;</span>
+                <h3 class="modal_head">Welcome to the Void &#128075;</h3>
+                <p class="modal_text">Sometimes, we just need to talk to nothing, and that's ok. That's why the void is here. Feel free to say whatever you want to it, and it won't save anything. All the void does is listen, and that's enough sometimes. Lots of love.</p>
+            </div>
+        </div>
+
+        <script>
+            var resources= document.getElementById("resources");
+            var about = document.getElementById("about");
+            var resourcesBTN= document.getElementById("resourcesBTN");
+            var aboutBTN = document.getElementById("aboutBTN");
+
+            resourcesBTN.onclick = function() {
+                resources.style.display = "block";
+            }
+            
+            aboutBTN.onclick = function() {
+                about.style.display = "block";
+            }
+
+            window.onclick = function(e) {
+                if (e.target == resources || e.target == about) {
+                    resources.style.display = "none";
+                    about.style.display = "none";
+                }
+            }
+        </script>
+    </footer>
+</html>
